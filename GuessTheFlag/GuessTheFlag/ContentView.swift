@@ -52,10 +52,7 @@ struct ContentView: View {
                     
                 }
                 
-                VStack{
-                    Text("Current Score:").bold().foregroundColor(.white)
-                    Text("\(pointConnter)").bold().foregroundColor(.white).font(.largeTitle)
-                }
+                
                 
             }
         }
