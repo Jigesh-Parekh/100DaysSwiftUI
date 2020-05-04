@@ -39,7 +39,7 @@ Single view application which provides end user dynamic tip splitter for 2-10 us
 ![WeSplit](./resources/WeSplit.png "WeSplit")
 
 
-### RockPaperScissor Trainer
+### ![RockPaperScissor](./resources/RPSIcon.png "RockPaperScissor")RockPaperScissor Trainer
 
 Single view application : trains user to enhance their Rock Paper Scissor skills by selecting the right or wrong move based on the on screen prompt. 
 
