@@ -57,7 +57,7 @@ struct ContentView: View {
             }
         }
         .alert(isPresented: $showingScore) {
-            Alert(title: Text(scoreTitle), message: Text("Yout Schore is \(pointConnter)"),
+            Alert(title: Text(scoreTitle), message: Text("Your Score is \(pointConnter)"),
                   dismissButton: .default(Text("Continue")) {
                     self.askQuestion()
                   })

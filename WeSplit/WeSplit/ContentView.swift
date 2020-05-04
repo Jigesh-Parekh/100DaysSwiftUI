@@ -89,7 +89,8 @@ struct ContentView: View {
                 }
                 
                 Section(header: Text("Review of Check information")) {
-                    HStack{
+                    VStack{
+                        HStack{
                         Text("Cost of Food")
                         .multilineTextAlignment(.leading)
                         .padding([.top, .bottom, .trailing])
@@ -100,39 +101,39 @@ struct ContentView: View {
                         Text("$\(costOfFood, specifier: "%.2f")")
                             .multilineTextAlignment(.trailing)
                             .padding(.leading)
+                        }
                             
-                    }
                     
                     
-                    HStack{
-                        Text("Grand Total")
-                                       .multilineTextAlignment(.leading)
-                                       .padding([.top, .bottom, .trailing])
-                                       .frame(height: 0.0)
-                            .foregroundColor(tipPercentage == 4 ? .red : .blue)
-                                       
-                        Spacer()
-                                           
-                        Text("$\(costOfFoodWithTip, specifier: "%.2f")")
-                                           .multilineTextAlignment(.trailing)
-                                           .padding(.leading)
-                                           
-                    }
-                    
-                    Text("More information here on what you need to pay")
-                    .multilineTextAlignment(.leading)
-                    .padding([.top, .bottom, .trailing])
-                    .frame(height: 0.0)
 
-            
-                    
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                        Text("TestButton").multilineTextAlignment(.center).padding(.horizontal, 122.912)
+                        HStack{
+                            Text("Grand Total")
+                                           .multilineTextAlignment(.leading)
+                                           .padding([.top, .bottom, .trailing])
+                                           .frame(height: 0.0)
+                                .foregroundColor(tipPercentage == 4 ? .red : .blue)
+                                           
+                            Spacer()
+                                               
+                            Text("$\(costOfFoodWithTip, specifier: "%.2f")")
+                                               .multilineTextAlignment(.trailing)
+                                               .padding(.leading)
+                                               
+                        }
+                        
                     }
-                    
-                   
+                
                 }
-            } .navigationBarTitle("TipSplitter")
+                    
+            Section(header: Text("Generate Receipt")) {
+                
+                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                    Text("Continue").multilineTextAlignment(.center).padding(.horizontal, 122.912)
+                }
+            }
+              
+            
+            } .navigationBarTitle("WeSplit")
             }
             
         }
