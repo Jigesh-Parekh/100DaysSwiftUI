@@ -32,10 +32,22 @@ struct ContentView: View {
         
     }
     
-    var costOfFood: Double {
-        
+    var tipValue: Double {
+        let peopleCount = Double(numberOfPeople + 2)
+        let tipSelection = Double(tipPercentages[tipPercentage])
         let orderAmount = Double(checkAmount) ?? 0.0
-        return orderAmount
+        let tipVal = ((orderAmount / 100 * tipSelection) / peopleCount)
+        return tipVal
+    }
+    
+    var orderAmount: Double {
+        let peopleCount = Double(numberOfPeople + 2)
+        let orderAmount = Double(checkAmount) ?? 0.0
+        
+        let grandTotal  = orderAmount
+        let amountPerPerson = grandTotal / peopleCount
+        
+        return amountPerPerson
         
     }
     
@@ -65,7 +77,7 @@ struct ContentView: View {
                     
                     
                     Picker("Number of People", selection: $numberOfPeople){
-                        ForEach(2 ..< 100 ) {
+                        ForEach(2 ..< 40 ) {
                             Text("\($0) people")
                         }
                     }
@@ -84,21 +96,25 @@ struct ContentView: View {
                     
                 }
                 
-                Section(header: Text("Amount per person: ")) {
-                    Text("$\(totalPerPerson, specifier: "%.2f")")
+                Section(header: Text("Tip Value: ")) {
+                    Text("$\(tipValue, specifier: "%.2f")")
+                }
+                
+                Section(header: Text("Order Amount: ")) {
+                    Text("$\(orderAmount, specifier: "%.2f")")
                 }
                 
                 Section(header: Text("Review of Check information")) {
                     VStack{
                         HStack{
-                        Text("Cost of Food")
+                        Text("Amount Per Person")
                         .multilineTextAlignment(.leading)
                         .padding([.top, .bottom, .trailing])
                         .frame(height: 0.0)
                         
                         Spacer()
                         
-                        Text("$\(costOfFood, specifier: "%.2f")")
+                        Text("$\(totalPerPerson, specifier: "%.2f")")
                             .multilineTextAlignment(.trailing)
                             .padding(.leading)
                         }
@@ -125,12 +141,7 @@ struct ContentView: View {
                 
                 }
                     
-            Section(header: Text("Generate Receipt")) {
-                
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                    Text("Continue").multilineTextAlignment(.center).padding(.horizontal, 122.912)
-                }
-            }
+            
               
             
             } .navigationBarTitle("WeSplit")
