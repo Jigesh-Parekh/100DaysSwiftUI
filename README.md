@@ -36,7 +36,7 @@ Single view application, promps user to associate image of a flag based off of c
 
 Single view application which provides end user dynamic tip splitter for 2-10 users. 
 
-![WeSplit](./resources/WeSplit.png "WeSplit")![WeSplit|20%](./resources/WeSplitIcon.png ) <!-- .element height="50%" width="50%" -->
+![WeSplit](./resources/WeSplit.png "WeSplit")![WeSplit|20%](./resources/WeSplitIcon.png )
 
 
 ### RockPaperScissor Trainer
