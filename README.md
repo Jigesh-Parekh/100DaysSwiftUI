@@ -36,10 +36,14 @@ Single view application, promps user to associate image of a flag based off of c
 
 Single view application which provides end user dynamic tip splitter for 2-10 users. 
 
-![WeSplit](./resources/WeSplit.png "WeSplit")
+![WeSplit](./resources/WeSplit.png "WeSplit")(./resources/WeSplitIcon.png = 150x150)
 
 ### RockPaperScissor Trainer
 
 Single view application : trains user to enhance their Rock Paper Scissor skills by selecting the right or wrong move based on the on screen prompt. 
 
 ![RockPaperScissor](./resources/RockPaperScissor.png "RockPaperScissor")
+
+### BetterRest (in work)
+
+FormBased application implementing Core ML to optimize coffee drinkers sleep quality
