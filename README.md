@@ -32,11 +32,11 @@ Single view application, promps user to associate image of a flag based off of c
 
 ![GuessTheFlag](./resources/GuessFlag.png "GuessTheFlag")
 
-### WeSplit
+### ![WeSplit](./resources/WeSplitIcon.png ) WeSplit
 
 Single view application which provides end user dynamic tip splitter for 2-10 users. 
 
-![WeSplit](./resources/WeSplit.png "WeSplit")![WeSplit|20%](./resources/WeSplitIcon.png )
+![WeSplit](./resources/WeSplit.png "WeSplit")
 
 
 ### RockPaperScissor Trainer
