@@ -30,7 +30,7 @@ In efforts to have some fun during the quarantine, this repo will be tracking my
 
 Single view application, promps user to associate image of a flag based off of country name provided.
 
-![GuessTheFlag](./resources/GuessTheFlag.png "GuessTheFlag")
+![GuessTheFlag](./resources/GuessFlag.png "GuessTheFlag")
 
 ### WeSplit
 
