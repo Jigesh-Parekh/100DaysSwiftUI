@@ -26,7 +26,7 @@ In efforts to have some fun during the quarantine, this repo will be tracking my
 ## Project Catalog:
 
 
-### Guess The Flag
+### ![GuessTheFlag](./resources/GuessFlagLogo.png "GuessTheFlag") Guess The Flag
 
 Single view application, promps user to associate image of a flag based off of country name provided.
 
