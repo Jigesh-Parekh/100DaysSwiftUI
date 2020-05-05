@@ -23,8 +23,8 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 Form{
-                    VStack(alignment: .leading, spacing: 0){
-                        Text("When Do you want to wake up?").font(.headline)
+                    Section {
+                        Text("When do you want to wake up?").font(.headline)
                         
                         DatePicker("Please enter a time", selection: $wakeUP, displayedComponents: .hourAndMinute).labelsHidden().datePickerStyle(WheelDatePickerStyle())
                     }
@@ -41,15 +41,15 @@ struct ContentView: View {
                         
                         Stepper(value: $coffeeAmount, in: 1...20) {
                             if coffeeAmount == 1 {
-                                Text("1 cup")
+                                Text("1 ☕")
                             } else {
-                                Text("\(coffeeAmount)")
+                                Text("\(coffeeAmount) ☕")
                             }
                         }
                     }
                 }
             }
-            .navigationBarTitle("BetterRest")
+            .navigationBarTitle("BetterRest 😴")
             .navigationBarItems(trailing: Button(action: calculateBedtime) { Text("Calculate") } )
             
             .alert(isPresented: $showingAlert ) {
@@ -70,6 +70,7 @@ struct ContentView: View {
     func calculateBedtime() {
         let model = SleepCalculator()
         
+        // datecomponents parameters stores as seconds and optional : need to be unwrapped
         let components = Calendar.current.dateComponents([.hour, .minute], from: wakeUP)
         
         let hour = (components.hour ?? 0) * 60 * 60

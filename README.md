@@ -45,6 +45,11 @@ Single view application : trains user to enhance their Rock Paper Scissor skills
 
 ![RockPaperScissor](./resources/RockPaperScissor.png "RockPaperScissor")
 
-### BetterRest (in work)
+### ![BetterRest](./resources/BetterRestIcon.png "BetterRest")BetterRest 
 
-FormBased application implementing Core ML to optimize coffee drinkers sleep quality
+FormBased application implementing Core ML to optimize coffee drinkers sleep quality 
+
+Implements regression analysis to present optimal sleep time based on how much coffee user has consumed. 
+
+![BetterRest](./resources/BetterRest1.png "BetterRest")![BetterRest](./resources/BetterRest2.png "BetterRest")
+
