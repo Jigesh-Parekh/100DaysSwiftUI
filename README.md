@@ -58,3 +58,9 @@ Implements regression analysis to present optimal sleep time based on how much c
 Word guessing game - requires  user to derive novel words from a word presented randomly. Leverages UITextChecker to validate word exists in English language, counts users successful inputs by word count. 
 
  ![WordSplitter](./resources/WordSplitterGif.gif "WordSplitter")
+
+### Animations
+
+various animation excecises
+
+ ![animation](./resources/jigAni.gif "jigAni")
