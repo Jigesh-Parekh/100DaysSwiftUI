@@ -53,8 +53,8 @@ Implements regression analysis to present optimal sleep time based on how much c
 
 ![BetterRest](./resources/BetterRest1.png "BetterRest")![BetterRest](./resources/BetterRest2.png "BetterRest")
 
-### ![WordSplitter](./resources/WordSplitterIcon.png "WordSplitter")WordSplitter 
+### ![WordSplitter](./resources/WordSplitterIcon.png "WordSplitter")WordScramble
 
-Word splitting game - requires  user to derive novel words from a word presented randomly. Leverages UITextChecker to validate word exists in English language, counts users successful inputs by word count. 
+Word guessing game - requires  user to derive novel words from a word presented randomly. Leverages UITextChecker to validate word exists in English language, counts users successful inputs by word count. 
 
  ![WordSplitter](./resources/WordSplitterGif.gif "WordSplitter")
