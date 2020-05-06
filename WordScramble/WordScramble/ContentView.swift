@@ -17,24 +17,84 @@ struct ContentView: View {
     @State private var errorTitle = ""
     @State private var errorMessage = ""
     @State private var showingError = false
+    
+    @State private var score = 0
     var body: some View {
         
         NavigationView{
-            VStack{
-                TextField("Enter your word", text: $newWord, onCommit: addNewWord).textFieldStyle(RoundedBorderTextFieldStyle())
-                    .autocapitalization(.none).padding()
+            ZStack {
                 
-                List(usedWords, id: \.self) {
-                    Image(systemName: "\($0.count).circle")
-                    Text($0)
+                VStack{
+                    TextField("Enter your word", text: $newWord, onCommit: addNewWord).textFieldStyle(RoundedBorderTextFieldStyle())
+                        .autocapitalization(.none).padding()
+                    
+                    List(usedWords, id: \.self) {
+                        Image(systemName: "\($0.count).circle")
+                        Text($0)
+                    }
+                }
+            .navigationBarTitle(rootWord)
+            .onAppear(perform: startGame)
+                .alert(isPresented: $showingError) {
+                    Alert(title: Text(errorTitle), message: Text(errorMessage), dismissButton: .default(Text("OK")))
+                }
+                
+                VStack{
+                Spacer()
+                    VStack{
+                        HStack {
+                            Spacer()
+                            Button(action: {
+                                self.startGame()
+                                }) {
+                                    HStack {
+                                        Image(systemName: "livephoto")
+                                           .font(.title)
+                                        Text("Next Word")
+                                           .fontWeight(.semibold)
+                                           .font(.body)
+                                   }
+                                   .padding()
+                                   .foregroundColor(.white)
+                                   .background(Color.blue)
+                                   .cornerRadius(40)
+                               }
+                               
+                           }
+                        
+                        
+                        HStack {
+                            Text("Score: \(score)").fontWeight(.bold)
+                                .foregroundColor(Color.white)
+                                .multilineTextAlignment(.trailing)
+                                .padding()
+                                .frame(width: 150, height: 50, alignment: .bottomLeading)
+                                .background(Color.gray)
+                                .cornerRadius(40).padding()
+                            Spacer()
+                            Button(action: {
+                                self.startGame()
+                            }) {
+                                HStack {
+                                    Image(systemName: "livephoto")
+                                        .font(.title)
+                                    Text("      Restart")
+                                        .fontWeight(.semibold)
+                                        .font(.body)
+                                }
+                                .padding()
+                                .foregroundColor(.white)
+                                .background(Color.red)
+                                .cornerRadius(40)
+                            }
+                            
+                        }
+                    }
                 }
             }
-        .navigationBarTitle(rootWord)
-        .onAppear(perform: startGame)
-            .alert(isPresented: $showingError) {
-                Alert(title: Text(errorTitle), message: Text(errorMessage), dismissButton: .default(Text("OK")))
-            }
+            
         }
+        .padding(.trailing)
     }
     
     
@@ -47,19 +107,27 @@ struct ContentView: View {
         
         guard isOriginal(word: answer) else {
             wordError(title: "Word used already", message: "Try harder")
+            newWord = ""
+            score = 0
             return
         }
         
         guard isPossible(word: answer) else {
+            newWord = ""
             wordError(title: "Word not Recognized", message: "Try again")
+            newWord = ""
+            score = 0
             return
         }
         
         guard isReal(word: answer) else {
-            wordError(title: "Not a real word", message: "Stop playing games")
+            wordError(title: "Not a real word", message: "Either the word is not real or its under 3 characters, try harder!")
+            newWord = ""
+            score = 0
             return
         }
         
+        score += answer.count
         usedWords.insert(answer, at: 0)
         newWord = ""
     }
@@ -73,6 +141,8 @@ struct ContentView: View {
                 
                 rootWord = allWords.randomElement() ?? "silkworm"
                 
+                newWord = ""
+                usedWords = [String]()
                 return
             }
         }
@@ -101,6 +171,10 @@ struct ContentView: View {
         let checker = UITextChecker()
         let range = NSRange(location: 0, length: word.utf16.count)
         let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
+        
+        if word.count < 3 {
+            return false
+        }
         
         return misspelledRange.location == NSNotFound
     }
