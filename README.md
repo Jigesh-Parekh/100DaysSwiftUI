@@ -10,7 +10,7 @@ In efforts to have some fun during the quarantine, this repo will be tracking my
 * [x] Days 16 - 24: Starting SwiftUI
 * [x] Day 25: Consolidation II
 * [x] Days 26 - 34: Expanding Your Skills
-* [ ] Day 35: Consolidation III
+* [x] Day 35: Consolidation III
 * [ ] Days 36 - 46: Scaling Up to Bigger Apps
 * [ ] Days 47 - 48: Consolidation IV
 * [ ] Days 49 - 59: Focus on Data
