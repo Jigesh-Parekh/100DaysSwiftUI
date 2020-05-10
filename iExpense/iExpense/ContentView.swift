@@ -8,18 +8,30 @@
 
 import SwiftUI
 
-struct User {
-    var firstName = "Bilbo"
-    var lastName = "Baggins"
+
+//global classes
+
+struct SecondView: View {
+    @Environment(\.presentationMode) var presentationMode
+    var body: some View {
+        Button("Dismiss") {
+            self.presentationMode.wrappedValue.dismiss()
+        }
+    }
 }
 
+//local struct
+
+
 struct ContentView: View {
-    @State private var user = User()
-    
+    @State private var showSheet = false
     var body: some View {
-        VStack {
-        Text("\(user.firstName)")
-            TextField("", text: $user.lastName)
+        
+        Button("show sheet") {
+            self.showSheet.toggle()
+        }
+        .sheet(isPresented: $showSheet) {
+            SecondView()
         }
     }
 }
