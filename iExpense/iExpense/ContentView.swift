@@ -25,16 +25,34 @@ struct SecondView: View {
 
 struct ContentView: View {
     @State private var showSheet = false
+    
+    @State private var numbers = [Int]()
+    @State private var currentNum  = 1
     var body: some View {
+        NavigationView{
+            VStack {
+                List {
+                    ForEach(numbers, id: \.self) {
+                        Text("\($0)")
+                    }
+                    .onDelete(perform: removeRows)
+                }
+                Button("Add Numbers") {
+                    self.numbers.append(self.currentNum)
+                    self.currentNum += 1
+                }
+            }
+            .navigationBarItems(leading: EditButton())
+        }
         
-        Button("show sheet") {
-            self.showSheet.toggle()
-        }
-        .sheet(isPresented: $showSheet) {
-            SecondView()
-        }
     }
+
+    func removeRows(at offsets: IndexSet) {
+          numbers.remove(atOffsets: offsets)
+      }
 }
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
