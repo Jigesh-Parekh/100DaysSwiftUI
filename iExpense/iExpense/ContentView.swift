@@ -8,10 +8,40 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct ExpensesItem: Identifiable  {
+    
+    let id = UUID()
+    let name: String
+    let type: String
+    let amount: Int
+}
 
+class Expenses: ObservableObject {
+    @Published var items = [ExpensesItem]()
+}
+
+struct ContentView: View {
+    @ObservedObject var expenses = Expenses()
+    
     var body: some View {
-       Text("HelloWorld")
+        NavigationView {
+            List {
+                ForEach(expenses.items) {
+                    item in Text(item.name)
+                }.onDelete(perform: removeItems)
+            }
+            .navigationBarTitle("iExpense")
+            .navigationBarItems(trailing: Button(action: {
+                let expense = ExpensesItem(name: "Test", type: "things", amount: 5)
+                self.expenses.items.append(expense)
+            }) {
+                Image(systemName: "plus")
+            })
+        }
+    }
+    
+    func removeItems(at offsets: IndexSet) {
+        expenses.items.remove(atOffsets: offsets)
     }
 }
 
